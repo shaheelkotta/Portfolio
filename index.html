@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Professional Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons (e.g., social media, skills) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for the portfolio */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light background - Slate 50 */
+            color: #1f2937; /* Dark text - Gray 900 */
+            line-height: 1.6;
+        }
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        .section-padding {
+            padding: 4rem 1rem; /* Responsive padding */
+        }
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 6rem 2rem;
+            }
+        }
+        .card-hover-effect {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Lighter shadow for light theme */
+        }
+        .btn-primary {
+            background-color: #6366f1; /* Indigo 500 */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #4f46e5; /* Indigo 600 */
+        }
+        .btn-secondary {
+            background-color: #e2e8f0; /* Light Gray 200 */
+            color: #1f2937; /* Dark text */
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #cbd5e1; /* Light Gray 300 */
+            color: #1f2937;
+        }
+        /* Removed input/textarea specific styles as the form is gone */
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white text-gray-800 shadow-md fixed w-full z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo/Name -->
+            <a href="#home" class="text-2xl font-bold text-indigo-600 rounded-md p-2 hover:text-indigo-800 transition-colors">Your Name</a>
+
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none text-gray-700 hover:text-indigo-600">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+
+            <!-- Navigation Links -->
+            <ul id="main-nav" class="hidden md:flex space-x-6">
+                <li><a href="#home" class="text-gray-700 hover:text-indigo-600 transition-colors rounded-md p-2">Home</a></li>
+                <li><a href="#about" class="text-gray-700 hover:text-indigo-600 transition-colors rounded-md p-2">About</a></li>
+                <li><a href="#skills" class="text-gray-700 hover:text-indigo-600 transition-colors rounded-md p-2">Skills</a></li>
+                <li><a href="#projects" class="text-gray-700 hover:text-indigo-600 transition-colors rounded-md p-2">Projects</a></li>
+                <li><a href="#contact" class="text-gray-700 hover:text-indigo-600 transition-colors rounded-md p-2">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu-overlay" class="fixed inset-0 bg-white bg-opacity-95 z-40 hidden md:hidden">
+            <div class="flex justify-end p-4">
+                <button id="close-mobile-menu" class="text-gray-800 text-3xl focus:outline-none hover:text-indigo-600">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="flex flex-col items-center space-y-6 text-2xl text-gray-800">
+                <li><a href="#home" class="hover:text-indigo-600 transition-colors rounded-md p-2 block w-full text-center" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="#about" class="hover:text-indigo-600 transition-colors rounded-md p-2 block w-full text-center" onclick="closeMobileMenu()">About</a></li>
+                <li><a href="#skills" class="hover:text-indigo-600 transition-colors rounded-md p-2 block w-full text-center" onclick="closeMobileMenu()">Skills</a></li>
+                <li><a href="#projects" class="hover:text-indigo-600 transition-colors rounded-md p-2 block w-full text-center" onclick="closeMobileMenu()">Projects</a></li>
+                <li><a href="#contact" class="hover:text-indigo-600 transition-colors rounded-md p-2 block w-full text-center" onclick="closeMobileMenu()">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center text-center bg-gradient-to-br from-white to-gray-50 pt-20">
+            <div class="container mx-auto px-4 py-12">
+                <div class="flex flex-col md:flex-row items-center justify-center md:space-x-12">
+                    <!-- Updated Placeholder for your photo -->
+                    <div class="mb-8 md:mb-0 w-64 h-64 md:w-80 md:h-80 overflow-hidden rounded-full border-4 border-indigo-500 shadow-lg flex items-center justify-center">
+                        <img src="profile.jpg" alt="SHAHEEL P" class="object-cover w-full h-full">
+                    </div>
+                    <div>
+                        <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4 leading-tight">
+                            Hi, I'm <span class="text-indigo-600">SHAHEEL P</span>
+                        </h1>
+                        <p class="text-xl md:text-2xl text-gray-700 mb-8 max-w-2xl mx-auto">
+                            A passionate <span class="font-semibold text-indigo-700">Web Developer</span> specializing in creating dynamic and user-friendly web experiences.
+                        </p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#projects" class="btn-primary flex items-center space-x-2">
+                                <i class="fas fa-laptop-code"></i>
+                                <span>View Projects</span>
+                            </a>
+                            <a href="#" class="btn-secondary flex items-center space-x-2">
+                                <i class="fas fa-download"></i>
+                                <span>Download CV</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-padding bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-indigo-600 mb-12">About Me</h2>
+                <div class="max-w-4xl mx-auto text-lg text-gray-700">
+                    <p class="mb-6">
+                        Hello! I'm <span class="font-semibold text-gray-900">Shaheel P</span>, a dedicated and results-driven professional with a strong background in [Your Field/Industry, e.g., software development, graphic design, marketing]. My journey in this field began [mention how/when, e.g., "5 years ago, driven by a fascination with how technology shapes our world"].
+                    </p>
+                    <p class="mb-6">
+                        I thrive on solving complex problems and transforming innovative ideas into tangible solutions. My expertise lies in [mention 2-3 key areas, e.g., "full-stack web development, responsive UI/UX design, and database management"]. I am proficient in [mention key technologies/tools, e.g., "JavaScript, React, Node.js, Python, and SQL"].
+                    </p>
+                    <p>
+                        Outside of my professional work, I enjoy [mention a hobby or interest, e.g., "exploring new hiking trails, experimenting with smart home technology, or reading sci-fi novels"]. I am always eager to learn new things and contribute to impactful projects. Let's connect and build something amazing together!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section-padding bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-indigo-600 mb-12">My Skills</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <!-- Skill Card 1 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover-effect">
+                        <div class="text-center mb-4">
+                            <i class="fab fa-html5 text-5xl text-orange-500"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2 text-center">Frontend Development</h3>
+                        <p class="text-gray-700 text-center">HTML5, CSS3, JavaScript, React, Vue.js, Tailwind CSS</p>
+                    </div>
+                    <!-- Skill Card 2 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover-effect">
+                        <div class="text-center mb-4">
+                            <i class="fab fa-node-js text-5xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2 text-center">Backend Development</h3>
+                        <p class="text-gray-700 text-center">Node.js, Express.js, Python, Django, RESTful APIs</p>
+                    </div>
+                    <!-- Skill Card 3 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover-effect">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-database text-5xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2 text-center">Databases</h3>
+                        <p class="text-gray-700 text-center">MongoDB, PostgreSQL, MySQL, Firebase Firestore</p>
+                    </div>
+                    <!-- Skill Card 4 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover-effect">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-cloud text-5xl text-sky-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2 text-center">Cloud & Deployment</h3>
+                        <p class="text-gray-700 text-center">AWS, Netlify, Vercel, Docker, CI/CD</p>
+                    </div>
+                    <!-- Skill Card 5 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover-effect">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-paint-brush text-5xl text-purple-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2 text-center">UI/UX Design</h3>
+                        <p class="text-gray-700 text-center">Figma, Adobe XD, User Research, Wireframing</p>
+                    </div>
+                    <!-- Skill Card 6 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover-effect">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-code-branch text-5xl text-gray-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-gray-900 mb-2 text-center">Version Control</h3>
+                        <p class="text-gray-700 text-center">Git, GitHub, GitLab</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section-padding bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-indigo-600 mb-12">My Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover-effect">
+                        <img src="https://placehold.co/600x400/e2e8f0/1f2937?text=Project+1" alt="Project 1" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Project Title One</h3>
+                            <p class="text-gray-700 mb-4">A brief description of Project One, highlighting its key features and technologies used (e.g., React, Node.js, MongoDB).</p>
+                            <div class="flex space-x-4">
+                                <a href="#" target="_blank" class="btn-primary text-sm flex items-center space-x-1">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                                <a href="#" target="_blank" class="btn-secondary text-sm flex items-center space-x-1">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Card 2 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover-effect">
+                        <img src="https://placehold.co/600x400/e2e8f0/1f2937?text=Project+2" alt="Project 2" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Project Title Two</h3>
+                            <p class="text-gray-700 mb-4">A brief description of Project Two, highlighting its key features and technologies used (e.g., Vue.js, Firebase, Tailwind CSS).</p>
+                            <div class="flex space-x-4">
+                                <a href="#" target="_blank" class="btn-primary text-sm flex items-center space-x-1">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                                <a href="#" target="_blank" class="btn-secondary text-sm flex items-center space-x-1">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Card 3 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover-effect">
+                        <img src="https://placehold.co/600x400/e2e8f0/1f2937?text=Project+3" alt="Project 3" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Project Title Three</h3>
+                            <p class="text-gray-700 mb-4">A brief description of Project Three, highlighting its key features and technologies used (e.g., Python, Django, PostgreSQL).</p>
+                            <div class="flex space-x-4">
+                                <a href="#" target="_blank" class="btn-primary text-sm flex items-center space-x-1">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                                <a href="#" target="_blank" class="btn-secondary text-sm flex items-x-1">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more project cards as needed -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-indigo-600 mb-12">Get in Touch</h2>
+                <div class="max-w-3xl mx-auto bg-gray-50 p-8 rounded-lg shadow-lg text-center">
+                    <p class="text-gray-700 mb-8">
+                        Have a question or want to collaborate? Connect with me directly!
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="mailto:your.email@example.com" class="btn-primary flex items-center space-x-2 w-full sm:w-auto justify-center">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email Me</span>
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" target="_blank" class="btn-secondary flex items-center space-x-2 w-full sm:w-auto justify-center">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/yourprofile" target="_blank" class="btn-secondary flex items-center space-x-2 w-full sm:w-auto justify-center">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+
+                    <div class="mt-12 text-center text-gray-600">
+                        <p class="mb-2"><i class="fas fa-envelope mr-2"></i> your.email@example.com</p>
+                        <p class="mb-2"><i class="fas fa-phone mr-2"></i> +1 (123) 456-7890</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> Your City, Your Country</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-gray-600 py-8 text-center shadow-inner">
+        <div class="container mx-auto px-4">
+            <p>&copy; <span id="current-year"></span> Your Name. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" target="_blank" class="hover:text-indigo-600 transition-colors text-2xl"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank" class="hover:text-indigo-600 transition-colors text-2xl"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" class="hover:text-indigo-600 transition-colors text-2xl"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank" class="hover:text-indigo-600 transition-colors text-2xl"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for smooth scrolling and mobile menu functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+            const mainNav = document.getElementById('main-nav');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenuOverlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            });
+
+            closeMobileMenuButton.addEventListener('click', () => {
+                closeMobileMenu();
+            });
+
+            function closeMobileMenu() {
+                mobileMenuOverlay.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    const headerOffset = document.querySelector('header').offsetHeight; // Get header height
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+
+                    // Close mobile menu after clicking a link
+                    if (!mobileMenuOverlay.classList.contains('hidden')) {
+                        closeMobileMenu();
+                    }
+                });
+            });
+
+            // Removed contact form submission logic as the form is replaced by buttons
+        });
+    </script>
+</body>
+</html>
