@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaheel - Professional Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons (e.g., social media, skills) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles for the portfolio */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light background - Slate 50 */
+            color: #1f2937; /* Dark text - Gray 900 */
+            line-height: 1.6;
+        }
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        .section-padding {
+            padding: 4rem 1rem; /* Responsive padding */
+        }
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 6rem 2rem;
+            }
+        }
+        .card-hover-effect {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Lighter shadow for light theme */
+        }
+        .btn-primary {
+            background-color: #6366f1; /* Indigo 500 */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #4f46e5; /* Indigo 600 */
+        }
+        .btn-secondary {
+            background-color: #e2e8f0; /* Light Gray 200 */
+            color: #1f2937; /* Dark text */
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #cbd5e1; /* Light Gray 300 */
+            color: #1f2937;
+        }
+        /* Removed input/textarea specific styles as the form is gone */
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white text-gray-800 shadow-md fixed w-full z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo/Name -->
+            <a href="#home" class="text-2xl font-bold text-indigo-600 rounded-md p-2 hover:text-indigo-800 transition-colors">SHAHEEL P</a>
+
+            <!-- Mobile Menu Button (Hamburger) -->
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none text-gray-700 hover:text-indigo-600">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+
+            <!-- Navigation Links -->
+            <ul id="main-nav" class="hidden md:flex space-x-6">
+                <li><a href="#home" class="text-gray-700 hover:text-indigo-600 transition-colors rounded-md p-2">Home</a></li>
+                <li><a href="#about" class="text-gray-700 hover:text-indigo-600 transition-colors rounded-md p-2">About</a></li>
+                <li><a href="#skills" class="text-gray-700 hover:text-indigo-600 transition-colors rounded-md p-2">Skills</a></li>
+                <li><a href="#projects" class="text-gray-700 hover:text-indigo-600 transition-colors rounded-md p-2">Projects</a></li>
+                <li><a href="#contact" class="text-gray-700 hover:text-indigo-600 transition-colors rounded-md p-2">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu-overlay" class="fixed inset-0 bg-white bg-opacity-95 z-40 hidden md:hidden">
+            <div class="flex justify-end p-4">
+                <button id="close-mobile-menu" class="text-gray-800 text-3xl focus:outline-none hover:text-indigo-600">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="flex flex-col items-center space-y-6 text-2xl text-gray-800">
+                <li><a href="#home" class="hover:text-indigo-600 transition-colors rounded-md p-2 block w-full text-center" onclick="closeMobileMenu()">Home</a></li>
+                <li><a href="#about" class="hover:text-indigo-600 transition-colors rounded-md p-2 block w-full text-center" onclick="closeMobileMenu()">About</a></li>
+                <li><a href="#skills" class="hover:text-indigo-600 transition-colors rounded-md p-2 block w-full text-center" onclick="closeMobileMenu()">Skills</a></li>
+                <li><a href="#projects" class="hover:text-indigo-600 transition-colors rounded-md p-2 block w-full text-center" onclick="closeMobileMenu()">Projects</a></li>
+                <li><a href="#contact" class="hover:text-indigo-600 transition-colors rounded-md p-2 block w-full text-center" onclick="closeMobileMenu()">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center text-center bg-gradient-to-br from-white to-gray-50 pt-20">
+            <div class="container mx-auto px-4 py-12">
+                <div class="flex flex-col md:flex-row items-center justify-center md:space-x-12">
+                    <!-- Updated Placeholder for your photo -->
+                    <div class="mb-8 md:mb-0 w-64 h-64 md:w-80 md:h-80 overflow-hidden rounded-full border-4 border-indigo-500 shadow-lg flex items-center justify-center">
+                        <img src="profile.jpg" alt="SHAHEEL P" class="object-cover w-full h-full">
+                    </div>
+                    <div>
+                        <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4 leading-tight">
+                            Hi, I'm <span class="text-indigo-600">SHAHEEL P</span>
+                        </h1>
+                        <p class="text-xl md:text-2xl text-gray-700 mb-8 max-w-2xl mx-auto">
+                            A passionate <span class="font-semibold text-indigo-700">Cybersecurity Enthusiast</span> specializing in network security, ethical hacking, and digital protection
+                        </p>
+                        <div class="flex justify-center space-x-4">
+                            <a href="#projects" class="btn-primary flex items-center space-x-2">
+                                <i class="fas fa-laptop-code"></i>
+                                <span>View Projects</span>
+                            </a>
+                            <a href="#" class="btn-secondary flex items-center space-x-2">
+                                <i class="fas fa-download"></i>
+                                <span>Download CV</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-padding bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-indigo-600 mb-12">About Me</h2>
+                <div class="max-w-4xl mx-auto text-lg text-gray-700">
+                    <p class="mb-6">
+                        Hello! I'm <span class="font-semibold text-gray-900">Shaheel P</span>, passionate Cybersecurity Enthusiast with a strong interest in ethical hacking, network defense, and digital forensics. My journey started with foundational certifications like Cisco’s Introduction to Cybersecurity and Infosys Springboard courses, and I continue to build my skills in penetration testing, encryption, and secure application development.
+My goal is to grow into a security professional who can analyze threats, protect systems, and create safer digital environments..
+                    </p>
+                    <p class="mb-6">
+I thrive on tackling complex security challenges and transforming innovative defense strategies into practical solutions.
+My expertise lies in ethical hacking, network defense, and digital forensics, and I am proficient in tools and technologies such as Kali Linux, Burp Suite, Wireshark, Python for Security, and Nmap.                    </p>
+                    <p>
+                        Outside of my professional work, I enjoy watching movies, taveling etc.. . I am always eager to learn new things and contribute to impactful projects. Let's connect and build something amazing together!
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+<section id="skills" class="section-padding bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center text-indigo-600 mb-12">My Skills</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      
+      <!-- Skill Card 1 -->
+      <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover-effect">
+        <div class="text-center mb-4">
+          <i class="fas fa-network-wired text-5xl text-blue-600"></i>
+        </div>
+        <h3 class="text-2xl font-semibold text-gray-900 mb-2 text-center">Networking & Security Fundamentals</h3>
+        <p class="text-gray-700 text-center">TCP/IP, Firewalls, VPNs, Network Security Basics</p>
+      </div>
+      
+      <!-- Skill Card 2 -->
+      <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover-effect">
+        <div class="text-center mb-4">
+          <i class="fab fa-linux text-5xl text-black"></i>
+        </div>
+        <h3 class="text-2xl font-semibold text-gray-900 mb-2 text-center">Linux & Windows Security</h3>
+        <p class="text-gray-700 text-center">System Hardening, Command-Line Tools, OS Security</p>
+      </div>
+      
+      <!-- Skill Card 3 -->
+      <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover-effect">
+        <div class="text-center mb-4">
+          <i class="fas fa-tools text-5xl text-green-600"></i>
+        </div>
+        <h3 class="text-2xl font-semibold text-gray-900 mb-2 text-center">Cybersecurity Tools</h3>
+        <p class="text-gray-700 text-center">Wireshark, Nmap, Burp Suite, Metasploit, Hydra</p>
+      </div>
+      
+      <!-- Skill Card 4 -->
+      <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover-effect">
+        <div class="text-center mb-4">
+          <i class="fas fa-lock text-5xl text-red-600"></i>
+        </div>
+        <h3 class="text-2xl font-semibold text-gray-900 mb-2 text-center">Cryptography & Encryption</h3>
+        <p class="text-gray-700 text-center">Text & Image Encryption, Password Security</p>
+      </div>
+      
+      <!-- Skill Card 5 -->
+      <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover-effect">
+        <div class="text-center mb-4">
+          <i class="fas fa-user-secret text-5xl text-gray-700"></i>
+        </div>
+        <h3 class="text-2xl font-semibold text-gray-900 mb-2 text-center">Ethical Hacking Practices</h3>
+        <p class="text-gray-700 text-center">Vulnerability Scanning, Ethical Keylogger, Penetration Testing</p>
+      </div>
+      
+      <!-- Skill Card 6 -->
+      <div class="bg-gray-50 p-6 rounded-lg shadow-md card-hover-effect">
+        <div class="text-center mb-4">
+          <i class="fas fa-shield-alt text-5xl text-indigo-600"></i>
+        </div>
+        <h3 class="text-2xl font-semibold text-gray-900 mb-2 text-center">Incident Response & Security</h3>
+        <p class="text-gray-700 text-center">Threat Detection, Risk Mitigation, Security Monitoring</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section-padding bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-indigo-600 mb-12">My Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover-effect">
+                        <img src="C:\Users\Administrator\Desktop\portfolio\text encrypt image.png" alt="Project 1" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Text encryption project</h3>
+                            <p class="text-gray-700 mb-4">Text Encryption Web App is powerful cybersecurity project built with Python (Flask). It allows users to encrypt and decrypt text using three widely used cryptographic algorithms(AES,DES,RSA).</p>
+                            <div class="flex space-x-4">
+                                <a href="#" target="_blank" class="btn-primary text-sm flex items-center space-x-1">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                                <a href="https://github.com/shaheelkotta/text-encryption-project" target="_blank" class="btn-secondary text-sm flex items-center space-x-1">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Card 2 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover-effect">
+                        <img src="C:\Users\Administrator\Desktop\portfolio\img encry.webp" alt="Project 2" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Image Encryption Tool</h3>
+                            <p class="text-gray-700 mb-4">Web-based Tool designed to protect sensitive image files from unauthorized access. Users can upload an image through a web interface, encrypt it using a symmetric key and decrypt to back.</p>
+                            <div class="flex space-x-4">
+                                <a href="#" target="_blank" class="btn-primary text-sm flex items-center space-x-1">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                                <a href="https://github.com/shaheelkotta/image_encryption_project" target="_blank" class="btn-secondary text-sm flex items-center space-x-1">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project Card 3 -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover-effect">
+                        <img src="C:\Users\Administrator\Desktop\portfolio\pass analy.png" alt="Project 3" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Password analyzer</h3>
+                            <p class="text-gray-700 mb-4">The Password Analyzer is a cybersecurity utility designed to evaluate password strength, detect weaknesses, and provide actionable recommendations for creating secure passwords.</p>
+                            <div class="flex space-x-4">
+                                <br>
+                                <a href="#" target="_blank" class="btn-primary text-sm flex items-center space-x-1">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                                <a href="https://github.com/shaheelkotta/password_analyzer" target="_blank" class="btn-secondary text-sm flex items-x-1">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more project cards as needed -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-center text-indigo-600 mb-12">Get in Touch</h2>
+                <div class="max-w-3xl mx-auto bg-gray-50 p-8 rounded-lg shadow-lg text-center">
+                    <p class="text-gray-700 mb-8">
+                        Have a question or want to collaborate? Connect with me directly!
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="mailto:shaheelkotta@gmail.com" class="btn-primary flex items-center space-x-2 w-full sm:w-auto justify-center">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email Me</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/shaheelp/" target="_blank" class="btn-secondary flex items-center space-x-2 w-full sm:w-auto justify-center">
+                            <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/shaheelkotta" target="_blank" class="btn-secondary flex items-center space-x-2 w-full sm:w-auto justify-center">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
+
+                    <div class="mt-12 text-center text-gray-600">
+                        <p class="mb-2"><i class="fas fa-envelope mr-2"></i> shaheelkotta@gmail.com</p>
+                        <p class="mb-2"><i class="fas fa-phone mr-2"></i> 9048689860</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i> Kerala,India</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-gray-600 py-8 text-center shadow-inner">
+        <div class="container mx-auto px-4">
+            <p>&copy; <span id="current-year"></span> SHAHEEL P. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="https://www.linkedin.com/in/shaheelp/" target="_blank" class="hover:text-indigo-600 transition-colors text-2xl"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/shaheelkotta" target="_blank" class="hover:text-indigo-600 transition-colors text-2xl"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" class="hover:text-indigo-600 transition-colors text-2xl"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank" class="hover:text-indigo-600 transition-colors text-2xl"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for smooth scrolling and mobile menu functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+            const closeMobileMenuButton = document.getElementById('close-mobile-menu');
+            const mainNav = document.getElementById('main-nav');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenuOverlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            });
+
+            closeMobileMenuButton.addEventListener('click', () => {
+                closeMobileMenu();
+            });
+
+            function closeMobileMenu() {
+                mobileMenuOverlay.classList.add('hidden');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    const headerOffset = document.querySelector('header').offsetHeight; // Get header height
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+
+                    // Close mobile menu after clicking a link
+                    if (!mobileMenuOverlay.classList.contains('hidden')) {
+                        closeMobileMenu();
+                    }
+                });
+            });
+
+            // Removed contact form submission logic as the form is replaced by buttons
+        });
+    </script>
+</body>
+</html>
